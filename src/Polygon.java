@@ -37,6 +37,11 @@ public class Polygon {
 		return coordinates;
 	}
 	
+	public double[][] rotate(double angleChange){
+		angle += angleChange;
+		return getVertices();
+	}
+	
 	private static String toString(double[][] board){
 		String s = "";
 		for(int i = 0; i < board.length; i++){
@@ -49,7 +54,7 @@ public class Polygon {
 	}
 	
 	public static void main(String[] args){
-		Polygon p = new Polygon(4, 5, -4 * Math.cos(12 * Math.PI / 180), -4 * Math.sin(12 * Math.PI / 180), 12);
+		Polygon p = new Polygon(Math.sqrt(2), 2, 0, 0, 45);
 		System.out.println(toString(p.getVertices()));
 	}
 }
