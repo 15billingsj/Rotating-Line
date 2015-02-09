@@ -37,6 +37,14 @@ public class Polygon {
 		return coordinates;
 	}
 	
+	public int getNumSides() {
+		return numSides;
+	}
+
+	public void setNumSides(int numSides) {
+		this.numSides = numSides;
+	}
+
 	public double[][] rotate(double angleChange){
 		angle += angleChange;
 		return getVertices();
