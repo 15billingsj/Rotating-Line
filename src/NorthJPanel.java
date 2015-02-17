@@ -14,6 +14,7 @@ public class NorthJPanel extends JPanel {
 	private JSlider speed;
 	private JButton changePoly;
 	private JButton changeColor;
+	private JButton changeDirection;
 
 	public NorthJPanel(){
 		super();
@@ -23,11 +24,13 @@ public class NorthJPanel extends JPanel {
 		this.speed = new SpeedJSlider();
 		this.changePoly = new ChangePolygonJButton();
 		this.changeColor = new ChangeColor();
+		this.changeDirection = new CounterRotateJButton();
 
 		add(stop);
 		add(speed);
 		add(changePoly);
 		add(changeColor);
+		add(changeDirection);
 		
 		setVisible(true);
 	}

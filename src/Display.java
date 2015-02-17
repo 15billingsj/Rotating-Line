@@ -11,7 +11,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
 public class Display extends JFrame implements ComponentListener{
-	private static int frameWidth = 600;
+	private static int frameWidth = 674;
 	private static int frameHieght = 500;
 	private JPanel north;
 	private JPanel south;
@@ -26,10 +26,10 @@ public class Display extends JFrame implements ComponentListener{
 		this.north = new NorthJPanel();
 		south.setBackground(Color.WHITE);
 		
-		north.setPreferredSize(new Dimension(frameWidth,50));
-		south.setPreferredSize(new Dimension(frameHieght,frameWidth));
-		super.add(north, BorderLayout.PAGE_START);
-		super.add(south, BorderLayout.CENTER);
+		north.setPreferredSize(new Dimension(frameWidth,32));
+		south.setPreferredSize(new Dimension(frameWidth,frameHieght));
+		super.getContentPane().add(north, BorderLayout.PAGE_START);
+		super.getContentPane().add(south);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		setVisible(true);
@@ -54,7 +54,18 @@ public class Display extends JFrame implements ComponentListener{
 	public static void main(String[] args){
 		Display t = new Display();
 	}
+	
+	@Override
+	public void componentResized(ComponentEvent arg0) {
+		Display.frameHieght = super.getContentPane().getHeight();
+		Display.frameWidth = super.getContentPane().getWidth();
+	}
 
+	@Override
+	public void componentShown(ComponentEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 	@Override
 	public void componentHidden(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
@@ -67,16 +78,5 @@ public class Display extends JFrame implements ComponentListener{
 		
 	}
 
-	@Override
-	public void componentResized(ComponentEvent arg0) {
-		Display.frameHieght = super.getHeight();
-		Display.frameWidth = super.getWidth();
-	}
-
-	@Override
-	public void componentShown(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 }
 

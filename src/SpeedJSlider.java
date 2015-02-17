@@ -6,14 +6,14 @@ import javax.swing.event.ChangeListener;
 
 
 public class SpeedJSlider extends JSlider implements ChangeListener{
-	private static double speed = 1;
+	private static double speed = 6;
 
 	public static void setSpeed(int speed) {
 		SpeedJSlider.speed = speed;
 	}
 
 	public SpeedJSlider(){
-		super(1,6);
+		super(1,12);
 		setBackground(Color.WHITE);
 		super.setMajorTickSpacing(1);
 //		setMinorTickSpacing(2);

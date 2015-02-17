@@ -7,23 +7,13 @@ public class StopJButton extends JButton implements ActionListener{
 	public StopJButton(){
 		super("Stop");
 		addActionListener(this);
-		setActionCommand("stop");
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		if("stop".equals(arg0.getActionCommand()) || SpeedJSlider.getSpeed() == 0){
-			stopped = true;
-			setActionCommand("bleh");
-		}
-		else{
-			stopped = false;
-			setActionCommand("stop");
-		}
+		stopped = !stopped;
 	}
-	
+
 	public static boolean getStopped(){
 		return stopped;
 	}
-	
-
 }
