@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class ChangePolygonJButton extends JButton implements ActionListener{
-	private int numberOfSides;
+	private static int numberOfSides = 2;
 	public ChangePolygonJButton(){
 		super("Change Polygon");
 		addActionListener(this);
@@ -18,7 +18,7 @@ public class ChangePolygonJButton extends JButton implements ActionListener{
 		}
 	}
 
-	public int getNumberOfSides(){
+	public static int getNumberOfSides(){
 		return numberOfSides;
 	}
 

@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class StopJButton extends JButton implements ActionListener{
-	private boolean stopped = false;
+	private static boolean stopped = false;
 	public StopJButton(){
 		super("Stop");
 		addActionListener(this);
@@ -11,7 +11,7 @@ public class StopJButton extends JButton implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		if("stop".equals(arg0.getActionCommand())){
+		if("stop".equals(arg0.getActionCommand()) || SpeedJSlider.getSpeed() == 0){
 			stopped = true;
 			setActionCommand("bleh");
 		}
@@ -21,7 +21,7 @@ public class StopJButton extends JButton implements ActionListener{
 		}
 	}
 	
-	public boolean getStopped(){
+	public static boolean getStopped(){
 		return stopped;
 	}
 	

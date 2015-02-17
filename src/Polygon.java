@@ -14,6 +14,18 @@ public class Polygon {
 		this.angle = angle;
 	}
 	
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+
+	public void setCenterX(double centerX) {
+		this.centerX = centerX;
+	}
+
+	public void setCenterY(double centerY) {
+		this.centerY = centerY;
+	}
+
 	public Polygon(double radius, int numSides){
 		this.radius = radius;
 		this.numSides = numSides;

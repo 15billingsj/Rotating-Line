@@ -1,25 +1,33 @@
+import java.awt.Color;
+
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
 public class SpeedJSlider extends JSlider implements ChangeListener{
-	private int speed;
+	private static double speed = 1;
+
+	public static void setSpeed(int speed) {
+		SpeedJSlider.speed = speed;
+	}
 
 	public SpeedJSlider(){
-		super(0,400);
-		super.setMajorTickSpacing(20);
-		setMinorTickSpacing(10);
+		super(1,6);
+		setBackground(Color.WHITE);
+		super.setMajorTickSpacing(1);
+//		setMinorTickSpacing(2);
+		setSnapToTicks(true);
 		setPaintTicks(true);
 		addChangeListener(this);
 	}
 
 	public void stateChanged(ChangeEvent arg0) {
 		JSlider source = (JSlider)arg0.getSource();
-		speed = (int)source.getValue();
+		speed = source.getValue();
 	}
 
-	public int getSpeed() {
+	public static double getSpeed() {
 		return speed;
 	}
 

@@ -22,11 +22,9 @@ public class ChangeColor extends JButton implements ActionListener{
 
 	public void actionPerformed(ActionEvent arg0) {
 		C = new Color(R.nextInt(256),G.nextInt(256),B.nextInt(256));
+		PolygonDrawer.setC(C);
 	}
 	
-	public Color getC() {
-		return C;
-	}
 
 }
 

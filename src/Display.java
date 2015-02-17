@@ -1,72 +1,82 @@
 
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
+import javax.swing.WindowConstants;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
-public class Display extends JFrame{
-	
+public class Display extends JFrame implements ComponentListener{
+	private static int frameWidth = 600;
+	private static int frameHieght = 500;
 	private JPanel north;
 	private JPanel south;
 	
 	public Display(){
-		super();
-		setSize(600,500);
-		this.south = new JPanel();
-		this.north = new JPanel();
-		add(north);
-//		super.add(south);
+		super("Rotating Line Project");
+		super.addComponentListener(this);
+		
+		setSize(frameWidth,frameHieght);
+		super.setMinimumSize(new Dimension(frameWidth,frameHieght));
+		this.south = new PolygonDrawer();
+		this.north = new NorthJPanel();
+		south.setBackground(Color.WHITE);
+		
+		north.setPreferredSize(new Dimension(frameWidth,50));
+		south.setPreferredSize(new Dimension(frameHieght,frameWidth));
+		super.add(north, BorderLayout.PAGE_START);
+		super.add(south, BorderLayout.CENTER);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
 		setVisible(true);
 	}
 	
-	public Display(String s){
-		super(s);
-		
-		setSize(500,500);
-		super.setMinimumSize(new Dimension(600,500));
-//		this.south = new SouthJPanel();
-		this.north = new NorthJPanel();
-		getContentPane().add(north);
-//		super.add(south);
-		setVisible(true);
+	public static int getFrameWidth() {
+		return frameWidth;
 	}
+
+	public void setFrameWidth(int frameWidth) {
+		Display.frameWidth = frameWidth;
+	}
+
+	public static int getFrameHieght() {
+		return frameHieght;
+	}
+
+	public void setFrameHieght(int frameHieght) {
+		Display.frameHieght = frameHieght;
+	}
+
 	public static void main(String[] args){
-		Display t = new Display("Thing");
-//		JFrame frame = new JFrame("Rotating Line Project");
-//
-//		frame.setSize(500, 500);
-//		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-//		frame.setVisible(true);
-//		frame.getContentPane().setBackground(Color.RED);
-//		frame.setMinimumSize( new Dimension(200,200) );
-//		frame.setResizable(false);
-//
-//		//creates the JPanel for the buttons and the sliders
-//		JPanel north = new JPanel();
-//		north.setBackground(Color.GREEN);
-//		north.setSize(frame.getWidth(), frame.getHeight()/5);
-//		frame.add(north);
-//		
-//		JButton b1 = new JButton("Stop");
-//		north.add(b1);
-//		
-//		b1 = new JButton("change color");
-//		north.add(b1);
-//		
-//		JSlider s1 = new JSlider();
-//		north.add(s1);
-//
-//		//creates the south JPanel for drawing the line 
-//		JPanel south = new JPanel();
-//		south.setBackground(Color.WHITE);
-//		south.setSize(frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
-//		frame.add(south);
-//		
-//		//add the graphic to south, update south
+		Display t = new Display();
+	}
+
+	@Override
+	public void componentHidden(ComponentEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void componentMoved(ComponentEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void componentResized(ComponentEvent arg0) {
+		Display.frameHieght = super.getHeight();
+		Display.frameWidth = super.getWidth();
+	}
+
+	@Override
+	public void componentShown(ComponentEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

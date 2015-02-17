@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -21,7 +22,7 @@ public class NorthJPanel extends JPanel {
 		this.stop = new StopJButton();
 		this.speed = new SpeedJSlider();
 		this.changePoly = new ChangePolygonJButton();
-		this.changeColor = new JButton("Change Polygon Color");
+		this.changeColor = new ChangeColor();
 
 		add(stop);
 		add(speed);
