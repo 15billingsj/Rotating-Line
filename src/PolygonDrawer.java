@@ -11,7 +11,7 @@ import javax.swing.Timer;
 
 public class PolygonDrawer extends JPanel implements ActionListener{
 	
-	private int radius = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width/2;
+	private int radius = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
 	private double speed = SpeedJSlider.getSpeed();
 	private static Color C;
 	private Polygon poly = new Polygon(radius,2,Display.getFrameWidth()/2,Display.getFrameHieght()/2,0);
@@ -32,7 +32,7 @@ public class PolygonDrawer extends JPanel implements ActionListener{
 		if(poly.getNumSides() != 2)
 			poly.setRadius(150);
 		if(poly.getNumSides() == 2)
-			poly.setRadius(1000);
+			poly.setRadius(Display.getFrameWidth());
 	}
 
 	public void rotate(Polygon poly){

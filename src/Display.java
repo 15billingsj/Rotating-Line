@@ -60,7 +60,8 @@ public class Display extends JFrame implements ComponentListener{
 		Display.frameHieght = super.getContentPane().getHeight();
 		Display.frameWidth = super.getContentPane().getWidth();
 	}
-
+	
+	//unused methods only here to make the compiler happy
 	@Override
 	public void componentShown(ComponentEvent arg0) {
 		// TODO Auto-generated method stub

@@ -16,7 +16,6 @@ public class SpeedJSlider extends JSlider implements ChangeListener{
 		super(1,12);
 		setBackground(Color.WHITE);
 		super.setMajorTickSpacing(1);
-//		setMinorTickSpacing(2);
 		setSnapToTicks(true);
 		setPaintTicks(true);
 		addChangeListener(this);
