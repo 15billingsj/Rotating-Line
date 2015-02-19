@@ -29,6 +29,7 @@ public class Display extends JFrame implements ComponentListener{
 		north.setPreferredSize(new Dimension(frameWidth,32));
 		south.setPreferredSize(new Dimension(frameWidth,frameHieght));
 		super.getContentPane().add(north, BorderLayout.PAGE_START);
+//		super.getContentPane().add(north, BorderLayout.PAGE_END);
 		super.getContentPane().add(south);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		

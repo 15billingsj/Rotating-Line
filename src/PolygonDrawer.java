@@ -12,7 +12,7 @@ import javax.swing.Timer;
 public class PolygonDrawer extends JPanel implements ActionListener{
 	
 	private int radius = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-	private double speed = SpeedJSlider.getSpeed();
+	private double speed;
 	private static Color C;
 	private Polygon poly = new Polygon(radius,2,Display.getFrameWidth()/2,Display.getFrameHieght()/2,0);
 	private int[] xpoints;
@@ -36,6 +36,9 @@ public class PolygonDrawer extends JPanel implements ActionListener{
 	}
 
 	public void rotate(Polygon poly){
+		speed = SpeedJSlider.getSpeed()/10 *CounterRotateJButton.getDirection();
+		if (StopJButton.getStopped())
+			speed = 0;
 		poly.setNumSides(ChangePolygonJButton.getNumberOfSides());
 		xpoints = new int[poly.getNumSides()];
 		ypoints = new int[poly.getNumSides()];
@@ -43,10 +46,10 @@ public class PolygonDrawer extends JPanel implements ActionListener{
 		radius(poly);
 
 		for(int i = 0; i < poly.getVertices().length; i++){
-			xpoints[i] = (int) Math.round(poly.rotate(SpeedJSlider.getSpeed()/10 *CounterRotateJButton.getDirection())[i][0]);
+			xpoints[i] = (int) Math.round(poly.rotate(speed)[i][0]);
 		}
 		for(int i = 0; i < poly.getVertices().length; i++){
-			ypoints[i] = (int) Math.round(poly.rotate(SpeedJSlider.getSpeed()/10*CounterRotateJButton.getDirection())[i][1]);
+			ypoints[i] = (int) Math.round(poly.rotate(speed)[i][1]);
 		}
 	}
 
@@ -54,9 +57,7 @@ public class PolygonDrawer extends JPanel implements ActionListener{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		
-		if(!StopJButton.getStopped()){
-			rotate(poly);
-		}
+		rotate(poly);
 
 		g2.setStroke(new BasicStroke(20));
 
