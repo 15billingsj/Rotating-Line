@@ -58,8 +58,14 @@ public class Display extends JFrame implements ComponentListener{
 	
 	@Override
 	public void componentResized(ComponentEvent arg0) {
-		Display.frameHieght = super.getContentPane().getHeight();
-		Display.frameWidth = super.getContentPane().getWidth();
+		int newFrameHieght = super.getContentPane().getHeight();
+		int newFrameWidth = super.getContentPane().getWidth();
+		
+		// This prevents the polygon from starting at 0,0
+		if ((newFrameHieght != 0) && (newFrameWidth != 0)) {
+			Display.frameHieght = newFrameHieght;
+			Display.frameWidth = newFrameWidth;
+		}
 	}
 	
 	//unused methods only here to make the compiler happy

@@ -45,11 +45,12 @@ public class PolygonDrawer extends JPanel implements ActionListener{
 		
 		radius(poly);
 
+		double[][] newPoints = poly.rotate(speed);
 		for(int i = 0; i < poly.getVertices().length; i++){
-			xpoints[i] = (int) Math.round(poly.rotate(speed)[i][0]);
+			xpoints[i] = (int) Math.round(newPoints[i][0]);
 		}
 		for(int i = 0; i < poly.getVertices().length; i++){
-			ypoints[i] = (int) Math.round(poly.rotate(speed)[i][1]);
+			ypoints[i] = (int) Math.round(newPoints[i][1]); // TODO Was Calling rotate twice!!!!
 		}
 	}
 
