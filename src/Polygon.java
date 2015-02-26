@@ -96,6 +96,15 @@ public class Polygon {
 		System.out.println(toString(p.getVertices()));
 		p.rotate(12);
 		System.out.println(toString(p.getVertices()));
+		
+		Polygon a = new Polygon(4, 7, 3, 2, 370);
+		System.out.println(toString(a.getVertices()));
+		a.rotate(4000.65);
+		System.out.println(toString(a.getVertices()));
+		a.rotate(-40.65);
+		System.out.println(toString(a.getVertices()));
+		a.rotate(0);
+		System.out.println(toString(a.getVertices()));
 	}
 	
 	/*
