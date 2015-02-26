@@ -1,7 +1,5 @@
 import java.awt.Color;
 import java.awt.Component;
-import java.util.Hashtable;
-
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -10,44 +8,45 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-public class SpeedJSlider extends JComponent implements ChangeListener{
-	private static double speed = 6;
+public class LineThicknessSlider extends JComponent implements ChangeListener{
+	private static int thickness = 20;
 
-	public static void setSpeed(int speed) {
-		SpeedJSlider.speed = speed;
+	public static void setThickness(int thickness) {
+		LineThicknessSlider.thickness = thickness;
 	}
 
-	public SpeedJSlider(int a, int b){
-		
+	public LineThicknessSlider(int a, int b){
+
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
 		//creates the Jlabel
-		JLabel label = new JLabel("Speed");
+		JLabel label = new JLabel("Line Thickness");
 		label.setAlignmentX(Component.CENTER_ALIGNMENT);
 		label.setForeground(Color.WHITE);
-		
+
 		//creates the JSlider
 		JSlider s = new JSlider(a,b);
 		s.setBackground(Color.BLACK);
-		s.setMajorTickSpacing(3);
+		s.setMajorTickSpacing(5);
 		s.setMinorTickSpacing(1);
-		s.setValue((a+b)/2);
-		s.setName("Sides");
+		s.setValue(thickness);
 		s.setSnapToTicks(true);
 		s.setPaintTicks(true);
 		s.addChangeListener(this);
-		
+
 		add(label);
 		add(s);
 	}
 
 	public void stateChanged(ChangeEvent arg0) {
 		JSlider source = (JSlider)arg0.getSource();
-		speed = source.getValue();
+		thickness = source.getValue();
 	}
 
-	public static double getSpeed() {
-		return speed;
+	public static int getThickness() {
+		return thickness;
 	}
 
 }
+
+
+

@@ -11,7 +11,9 @@ public class StopJButton extends JButton implements ActionListener{
 
 	public void actionPerformed(ActionEvent arg0) {
 		if(!stopped) super.setText("Start");
-		if(stopped) super.setText("Stop");
+		else{
+			super.setText("Stop");
+			}
 		stopped = !stopped;
 	}
 
